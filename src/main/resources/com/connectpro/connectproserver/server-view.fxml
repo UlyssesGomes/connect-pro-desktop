@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: E8E8E8;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.connectpro.connectproserver.ServerSceneController">
+   <children>
+      <AnchorPane prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #555;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="60.0" prefWidth="177.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <AnchorPane>
+                     <children>
+                        <Button fx:id="startButton" minWidth="36.0" mnemonicParsing="false" onAction="#onStartServerButton" stylesheets="@../../../style/button.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/play-icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <styleClass>
+                              <String fx:value="transparent-button" />
+                              <String fx:value="image-button" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane>
+                     <children>
+                        <Button fx:id="shutdownButton" minWidth="36.0" mnemonicParsing="false" onAction="#onShutdownServerButton" stylesheets="@../../../style/button.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/stop-icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <styleClass>
+                              <String fx:value="transparent-button" />
+                              <String fx:value="image-button" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <Label layoutX="14.0" layoutY="14.0" styleClass="header" stylesheets="@../../../style/typography.css" text="ConnectPro Server" textFill="WHITE" />
+         </children>
+         <effect>
+            <DropShadow blurType="GAUSSIAN" height="47.69" radius="11.4225" spread="0.39" width="0.0" />
+         </effect>
+      </AnchorPane>
+      <TextArea fx:id="serverLogTextArea" editable="false" layoutY="235.0" prefHeight="155.0" prefWidth="580.0" promptText="Server log" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="235.0" />
+      <AnchorPane layoutX="10.0" layoutY="77.0" prefHeight="71.0" prefWidth="193.0" styleClass="panel" stylesheets="@../../../style/application.css" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="77.0">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#00000092" height="20.38" radius="7.095" width="10.0" />
+         </effect>
+         <children>
+            <ImageView fx:id="imageStatus" fitHeight="71.0" fitWidth="81.0" layoutX="6.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@../../../images/internet-icon.png" />
+               </image></ImageView>
+            <Label layoutX="85.0" layoutY="11.0" prefHeight="25.0" prefWidth="64.0" styleClass="card-text" stylesheets="@../../../style/typography.css" text="Status" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="10.0" />
+            <Label fx:id="labelStatus" layoutX="85.0" layoutY="36.0" styleClass="card-text" stylesheets="@../../../style/typography.css" text="Offline" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="85.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="218.0" layoutY="77.0" prefHeight="71.0" prefWidth="193.0" styleClass="panel" stylesheets="@../../../style/application.css" AnchorPane.leftAnchor="213.0">
+         <children>
+            <ImageView fitHeight="71.0" fitWidth="81.0" layoutX="6.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@../../../images/smartphone-icon.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="85.0" layoutY="11.0" prefHeight="25.0" prefWidth="101.0" styleClass="card-text" stylesheets="@../../../style/typography.css" text="Connected" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="10.0" />
+            <Label fx:id="deviceCountLabel" layoutX="85.0" layoutY="36.0" styleClass="card-text" stylesheets="@../../../style/typography.css" text="0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="85.0" />
+         </children>
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#00000092" height="20.38" radius="7.095" width="10.0" />
+         </effect>
+      </AnchorPane>
+   </children>
+</AnchorPane>

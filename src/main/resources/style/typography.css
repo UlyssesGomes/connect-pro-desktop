@@ -1,0 +1,11 @@
+.header {
+    -fx-font-size: 22px;
+    -fx-font-family: "Nirmala UI";
+    -fx-font-weight: bold;
+}
+
+.card-text {
+    -fx-font-size: 16px;
+    -fx-font-family: "Nirmala UI";
+    -fx-font-weight: bold;
+}
