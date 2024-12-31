@@ -36,6 +36,9 @@ public class ServerSceneController implements Observer<ObservableData<String>> {
     private Label deviceCountLabel;
 
     @FXML
+    private Label programVersion;
+
+    @FXML
     private ImageView imageStatus;
 
     private Server server;
@@ -64,6 +67,8 @@ public class ServerSceneController implements Observer<ObservableData<String>> {
 
         deviceCount = 0;
         deviceCountLabel.setText(deviceCount + " Device");
+
+        programVersion.setText("v0.3");
     }
 
     public void onClose() {
@@ -113,9 +118,7 @@ public class ServerSceneController implements Observer<ObservableData<String>> {
     @Override
     public synchronized void update(Subject<ObservableData<String>> subjectValue) {
         if (subjectValue.subjectName.equals(WorkerMessageConstants.SUBJECT_NAME)) {
-            Platform.runLater(() -> {
-                serverLogTextArea.appendText("[Device " + subjectValue.data.id + "] " + subjectValue.data.data + "\n");
-            });
+            Platform.runLater(() -> serverLogTextArea.appendText("[Device " + subjectValue.data.id + "] " + subjectValue.data.data + "\n"));
         } else if(subjectValue.subjectName.equals(WorkerMessageConstants.CONNECTION_ADD)) {
             deviceCount++;
             updateDeviceCount();

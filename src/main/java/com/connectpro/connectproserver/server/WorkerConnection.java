@@ -1,6 +1,7 @@
 package com.connectpro.connectproserver.server;
 
 import com.connectpro.connectproserver.ServerSceneController;
+import com.connectpro.connectproserver.utils.AutoInput;
 import com.connectpro.connectproserver.utils.IdGenerator;
 import com.connectpro.connectproserver.utils.WorkerMessageConstants;
 import com.connectpro.connectproserver.utils.designpatterns.observable.IObservable;
@@ -9,7 +10,6 @@ import com.connectpro.connectproserver.utils.designpatterns.observable.Subject;
 import com.connectpro.connectproserver.utils.observableimplementations.ObservableData;
 
 import java.awt.*;
-import java.awt.event.InputEvent;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -24,7 +24,8 @@ public class WorkerConnection extends Thread implements IObservable<ObservableDa
     private DataOutputStream outputStream;
     private DataInputStream inputStream;
     private boolean isRunning;
-    private Robot robot;
+
+    private AutoInput autoInput;
 
     private int count = 0;
 
@@ -47,12 +48,6 @@ public class WorkerConnection extends Thread implements IObservable<ObservableDa
 
         isRunning = true;
 
-        try {
-            robot = new Robot();
-        } catch (AWTException e) {
-            System.err.println("Error while try to instantiate robot." + e.getMessage());
-        }
-
         ServerSceneController scene = ServerSceneController.getInstance();
         if(scene != null) {
             scene.addObservable(this);
@@ -60,6 +55,8 @@ public class WorkerConnection extends Thread implements IObservable<ObservableDa
         }
 
         subject = new Subject<>(getObservableName(), new ObservableData<String>());
+
+        autoInput = new AutoInput();
     }
 
     public void run() {
@@ -85,18 +82,16 @@ public class WorkerConnection extends Thread implements IObservable<ObservableDa
         String[] words = command.split("\\|");
         if(words.length > 0) {
             if(words[0].equals(ConnectionMessageProtocol.MOVE)) {
-                PointerInfo pointer = MouseInfo.getPointerInfo();
-                robot.mouseMove(pointer.getLocation().x + Integer.parseInt(words[1]), pointer.getLocation().y + Integer.parseInt(words[2]));
-                System.out.println("Move command with params: [" + words[1] + ", " + words[2] + "]" + " Count: " + count);
+                autoInput.smoothMouseMove(Integer.parseInt(words[1]), Integer.parseInt(words[2]));
                 count++;
             }
             else if(words[0].equals(ConnectionMessageProtocol.CLICK)) {
-                mouseLeftClick();
+                autoInput.mouseLeftClick();
             }
             else if(words[0].equals(ConnectionMessageProtocol.DOUBLE_CLICK)) {
-                mouseLeftClick();
+                autoInput.mouseLeftClick();
                 Thread.sleep(30);
-                mouseLeftClick();
+                autoInput.mouseLeftClick();
             }
             else if(words[0].equals(ConnectionMessageProtocol.FINISH_CONNECTION)) {
                 printMessage("Connection finished with device.");
@@ -160,16 +155,5 @@ public class WorkerConnection extends Thread implements IObservable<ObservableDa
         subject.data.id = id;
         subject.data.data = "Device removed.";
         notify(subject);
-    }
-
-    private void mouseLeftClick() {
-        robot.mousePress(InputEvent.BUTTON1_MASK);
-        robot.mouseRelease(InputEvent.BUTTON1_MASK);
-    }
-
-    private void smoothMouseMove(int x, int y) {
-        PointerInfo pointer = MouseInfo.getPointerInfo();
-
-        float magnitude = caculateMagniture(pointer.getLocation().x - x, pointer.getLocation().y - y));
     }
 }
