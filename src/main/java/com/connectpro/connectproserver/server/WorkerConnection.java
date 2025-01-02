@@ -9,7 +9,6 @@ import com.connectpro.connectproserver.utils.designpatterns.observable.Observer;
 import com.connectpro.connectproserver.utils.designpatterns.observable.Subject;
 import com.connectpro.connectproserver.utils.observableimplementations.ObservableData;
 
-import java.awt.*;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -81,21 +80,21 @@ public class WorkerConnection extends Thread implements IObservable<ObservableDa
 
         String[] words = command.split("\\|");
         if(words.length > 0) {
-            if(words[0].equals(ConnectionMessageProtocol.MOVE)) {
-                autoInput.smoothMouseMove(Integer.parseInt(words[1]), Integer.parseInt(words[2]));
-                count++;
-            }
-            else if(words[0].equals(ConnectionMessageProtocol.CLICK)) {
-                autoInput.mouseLeftClick();
-            }
-            else if(words[0].equals(ConnectionMessageProtocol.DOUBLE_CLICK)) {
-                autoInput.mouseLeftClick();
-                Thread.sleep(30);
-                autoInput.mouseLeftClick();
-            }
-            else if(words[0].equals(ConnectionMessageProtocol.FINISH_CONNECTION)) {
-                printMessage("Connection finished with device.");
-                shutDownCommunication();
+            switch (words[0]) {
+                case ConnectionMessageProtocol.MOVE -> {
+                    autoInput.smoothMouseMove(Integer.parseInt(words[1]), Integer.parseInt(words[2]));
+                    count++;
+                }
+                case ConnectionMessageProtocol.CLICK -> autoInput.mouseLeftClick();
+                case ConnectionMessageProtocol.DOUBLE_CLICK -> {
+                    autoInput.mouseLeftClick();
+                    Thread.sleep(30);
+                    autoInput.mouseLeftClick();
+                }
+                case ConnectionMessageProtocol.FINISH_CONNECTION -> {
+                    printMessage("Connection finished with device.");
+                    shutDownCommunication();
+                }
             }
         }
     }
