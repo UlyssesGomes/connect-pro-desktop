@@ -68,7 +68,7 @@ public class WorkerConnection extends Thread implements IObservable<ObservableDa
                 getCommand();
 
             } catch (Exception e) {
-                System.err.println("Connection finished." + e.getMessage());
+                System.err.println("Connection finished. " + e.getMessage());
             }
         }
         printMessage("Thread finished.");
@@ -77,6 +77,8 @@ public class WorkerConnection extends Thread implements IObservable<ObservableDa
 
     private void getCommand() throws IOException, InterruptedException {
         String command = inputStream.readUTF();
+
+        System.out.println("command: " + command);
 
         String[] words = command.split("\\|");
         if(words.length > 0) {
@@ -90,6 +92,20 @@ public class WorkerConnection extends Thread implements IObservable<ObservableDa
                     autoInput.mouseLeftClick();
                     Thread.sleep(30);
                     autoInput.mouseLeftClick();
+                }
+                case ConnectionMessageProtocol.KEY_DOWN -> {
+                    if(words.length == 2) {
+                        autoInput.keyDown(words[1]);
+                    } else {
+                        printMessage("Invalid command argument length.");
+                    }
+                }
+                case ConnectionMessageProtocol.KEY_UP -> {
+                    if(words.length == 2) {
+                        autoInput.keyUp(words[1]);
+                    } else {
+                        printMessage("Invalid command argument length.");
+                    }
                 }
                 case ConnectionMessageProtocol.FINISH_CONNECTION -> {
                     printMessage("Connection finished with device.");

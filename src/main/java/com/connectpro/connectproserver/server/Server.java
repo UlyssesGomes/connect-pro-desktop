@@ -1,20 +1,32 @@
 package com.connectpro.connectproserver.server;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 public class Server extends Service<Void> {
     public final int PORT = 7171;
+    public String IP;
     private boolean isRunning;
 
     private ServerSocket serverSocket;
 
     private ArrayList<WorkerConnection> connectionList;
+
+    public Server() {
+        try {
+            IP = InetAddress.getLocalHost().getHostAddress();
+        } catch (UnknownHostException e) {
+            IP = "-";
+            throw new RuntimeException(e);
+        }
+    }
 
     private void startServer() {
         isRunning = true;
@@ -43,7 +55,7 @@ public class Server extends Service<Void> {
             try {
                 connection.shutDownCommunication();
             } catch (IOException e) {
-                System.err.println("Error while closing ative socket. " + e.getMessage());
+                System.err.println("Error while closing active socket. " + e.getMessage());
             }
         }
     }
@@ -90,21 +102,7 @@ public class Server extends Service<Void> {
         };
     }
 
-
-
-
-    //        // create a service.
-//        Service friendFinder = new Service<String>() {
-//            @Override protected Task createTask() {
-//                return new Task() {
-//                    @Override protected String call() throws InterruptedException {
-//                        System.out.println("thread start...");
-//                        Thread.sleep(3000);
-//
-//                        System.out.println("thread finished...");
-//                        return "FXCollections.observableArrayList(\"John\", \"Jim\", \"Geoff\", \"Jill\", \"Suki\", \"Chiang\", \"Lin\")";
-//                    }
-//                };
-//            }
-//        };
+    public String getIp() {
+        return IP;
+    }
 }

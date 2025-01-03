@@ -1,13 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: E8E8E8;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.connectpro.connectproserver.ServerSceneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="620.0" style="-fx-background-color: E8E8E8;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.connectpro.connectproserver.ServerSceneController">
    <children>
+      <HBox layoutY="74.0" prefHeight="85.0" prefWidth="600.0" spacing="9.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="68.0">
+         <children>
+            <AnchorPane maxHeight="-Infinity" prefHeight="71.0" prefWidth="193.0" styleClass="panel" stylesheets="@../../../style/application.css">
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" color="#00000092" height="20.38" radius="7.095" width="10.0" />
+               </effect>
+               <children>
+                  <ImageView fx:id="imageStatus" fitHeight="71.0" fitWidth="81.0" layoutX="6.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="0.0">
+                     <image>
+                        <Image url="@../../../images/internet-icon.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="85.0" layoutY="11.0" prefHeight="25.0" prefWidth="64.0" styleClass="card-text" stylesheets="@../../../style/typography.css" text="Status" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="10.0" />
+                  <Label fx:id="labelStatus" layoutX="85.0" layoutY="36.0" styleClass="card-text" stylesheets="@../../../style/typography.css" text="Offline" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="85.0" />
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </AnchorPane>
+            <AnchorPane maxHeight="-Infinity" prefHeight="71.0" prefWidth="193.0" styleClass="panel" stylesheets="@../../../style/application.css">
+               <children>
+                  <ImageView fitHeight="71.0" fitWidth="81.0" layoutX="6.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="0.0">
+                     <image>
+                        <Image url="@../../../images/ip-icon.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="85.0" layoutY="11.0" prefHeight="25.0" prefWidth="101.0" styleClass="card-text" stylesheets="@../../../style/typography.css" text="Server IP" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="10.0" />
+                  <Label fx:id="deviceIpLabel" layoutX="85.0" layoutY="36.0" styleClass="card-text" stylesheets="@../../../style/typography.css" text="127.0.0.1" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="80.0" />
+               </children>
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" color="#00000092" height="20.38" radius="7.095" width="10.0" />
+               </effect>
+            </AnchorPane>
+            <AnchorPane maxHeight="-Infinity" prefHeight="71.0" prefWidth="193.0" styleClass="panel" stylesheets="@../../../style/application.css">
+               <children>
+                  <ImageView fitHeight="71.0" fitWidth="81.0" layoutX="6.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="0.0">
+                     <image>
+                        <Image url="@../../../images/smartphone-icon.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="85.0" layoutY="11.0" prefHeight="25.0" prefWidth="101.0" styleClass="card-text" stylesheets="@../../../style/typography.css" text="Connected" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="10.0" />
+                  <Label fx:id="deviceCountLabel" layoutX="85.0" layoutY="36.0" styleClass="card-text" stylesheets="@../../../style/typography.css" text="0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="85.0" />
+               </children>
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" color="#00000092" height="20.38" radius="7.095" width="10.0" />
+               </effect>
+            </AnchorPane>
+         </children>
+         <padding>
+            <Insets left="10.0" right="10.0" top="5.0" />
+         </padding>
+      </HBox>
       <AnchorPane prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #555;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="60.0" prefWidth="177.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -55,33 +108,6 @@
             <DropShadow blurType="GAUSSIAN" height="47.69" radius="11.4225" spread="0.39" width="0.0" />
          </effect>
       </AnchorPane>
-      <TextArea fx:id="serverLogTextArea" editable="false" layoutY="235.0" prefHeight="155.0" prefWidth="580.0" promptText="Server log" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="235.0" />
-      <AnchorPane layoutX="10.0" layoutY="77.0" prefHeight="71.0" prefWidth="193.0" styleClass="panel" stylesheets="@../../../style/application.css" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="77.0">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#00000092" height="20.38" radius="7.095" width="10.0" />
-         </effect>
-         <children>
-            <ImageView fx:id="imageStatus" fitHeight="71.0" fitWidth="81.0" layoutX="6.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="0.0">
-               <image>
-                  <Image url="@../../../images/internet-icon.png" />
-               </image></ImageView>
-            <Label layoutX="85.0" layoutY="11.0" prefHeight="25.0" prefWidth="64.0" styleClass="card-text" stylesheets="@../../../style/typography.css" text="Status" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="10.0" />
-            <Label fx:id="labelStatus" layoutX="85.0" layoutY="36.0" styleClass="card-text" stylesheets="@../../../style/typography.css" text="Offline" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="85.0" />
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="218.0" layoutY="77.0" prefHeight="71.0" prefWidth="193.0" styleClass="panel" stylesheets="@../../../style/application.css" AnchorPane.leftAnchor="213.0">
-         <children>
-            <ImageView fitHeight="71.0" fitWidth="81.0" layoutX="6.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="0.0">
-               <image>
-                  <Image url="@../../../images/smartphone-icon.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="85.0" layoutY="11.0" prefHeight="25.0" prefWidth="101.0" styleClass="card-text" stylesheets="@../../../style/typography.css" text="Connected" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="10.0" />
-            <Label fx:id="deviceCountLabel" layoutX="85.0" layoutY="36.0" styleClass="card-text" stylesheets="@../../../style/typography.css" text="0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="85.0" />
-         </children>
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#00000092" height="20.38" radius="7.095" width="10.0" />
-         </effect>
-      </AnchorPane>
+      <TextArea fx:id="serverLogTextArea" editable="false" layoutY="153.0" prefHeight="237.0" prefWidth="600.0" promptText="Server log" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="153.0" />
    </children>
 </AnchorPane>

@@ -15,6 +15,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +36,9 @@ public class ServerSceneController implements Observer<ObservableData<String>> {
 
     @FXML
     private Label deviceCountLabel;
+
+    @FXML
+    private Label deviceIpLabel;
 
     @FXML
     private Label programVersion;
@@ -57,6 +62,7 @@ public class ServerSceneController implements Observer<ObservableData<String>> {
     public void initialize() {
         shutdownButton.setDisable(true);
         server = new Server();
+        deviceIpLabel.setText(server.getIp());
         a = new Alert(Alert.AlertType.NONE);
 
         offlineStatusImage = new Image(getClass().getResource("/images/internet-icon.png").toString());
