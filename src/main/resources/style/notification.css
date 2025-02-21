@@ -45,7 +45,7 @@
  * Info Notification
  */
 .notification-info > .pane {
-    -fx-background-color: #9FE2BF, #7ED321, #32CD32 !important;
+    -fx-background-color: #87CEEB, #6495ED, #4682B4 !important;
     -fx-padding: 10 10 10 10 !important;
     -fx-background-insets: 0, 1, 2;
     height: 250px !important;
@@ -53,13 +53,13 @@
 
 .notification-info > .pane .title {
     -fx-font-size: 1.166667em; /*15px;*/
-    -fx-text-fill: #007A33;
+    -fx-text-fill: #FFF;
     -fx-font-weight: bold;
 }
 
 .notification-info > .pane .label {
     -fx-font-size: 1.166667em; /*15px;*/
-    -fx-text-fill: #007A33;
+    -fx-text-fill: #FFF;
     -fx-alignment: top-left;
 }
 
@@ -72,13 +72,13 @@
 }
 
 .notification-info > .pane .close-button > .graphic {
-    -fx-background-color: #007A33;
+    -fx-background-color: #AAA;
     -fx-scale-shape: false;
     -fx-padding: 4.5 4.5 4.5 4.5; /* Graphic is 9x9 px */
 }
 
 .notification-info > .pane .close-button:hover {
-    -fx-background-color: linear-gradient(#32CD32, #7ED321 34%, #9FE2BF 36%, #9FE2BF 63%, #7ED321 65%, #007A33);
+    -fx-background-color: linear-gradient(#4682B4, #6495ED 34%, #87CEEB 36%, #87CEEB 63%, #6495ED 65%, #4682B4);
 }
 
 
@@ -113,7 +113,7 @@
 }
 
 .notification-error > .pane .close-button > .graphic {
-    -fx-background-color: #DC143C;
+    -fx-background-color: #AAA;
     -fx-scale-shape: false;
     -fx-padding: 4.5 4.5 4.5 4.5; /* Graphic is 9x9 px */
 }
@@ -135,13 +135,13 @@
 
 .notification-warning > .pane .title {
     -fx-font-size: 1.166667em; /*15px;*/
-    -fx-text-fill: #FFFFFF;
+    -fx-text-fill: #FFF;
     -fx-font-weight: bold;
 }
 
 .notification-warning > .pane .label {
     -fx-font-size: 1.166667em; /*15px;*/
-    -fx-text-fill: #FFFFFF;
+    -fx-text-fill: #FFF;
     -fx-alignment: top-left;
 }
 
@@ -154,7 +154,7 @@
 }
 
 .notification-warning > .pane .close-button > .graphic {
-    -fx-background-color: #FF8C00;
+    -fx-background-color: #DDD;
     -fx-scale-shape: false;
     -fx-padding: 4.5 4.5 4.5 4.5; /* Graphic is 9x9 px */
 }
@@ -168,7 +168,7 @@
  * Confirm Notification
  */
 .notification-confirm > .pane {
-    -fx-background-color: #87CEEB, #6495ED, #4682B4 !important;
+    -fx-background-color: #D3D3D3, #AAAAAA, #808080 !important;
     -fx-padding: 10 10 10 10 !important;
     -fx-background-insets: 0, 1, 2;
     height: 250px !important;
@@ -176,13 +176,13 @@
 
 .notification-confirm > .pane .title {
     -fx-font-size: 1.166667em; /*15px;*/
-    -fx-text-fill: #4682B4;
+    -fx-text-fill: #000;
     -fx-font-weight: bold;
 }
 
 .notification-confirm > .pane .label {
     -fx-font-size: 1.166667em; /*15px;*/
-    -fx-text-fill: #4682B4;
+    -fx-text-fill: #000;
     -fx-alignment: top-left;
 }
 
@@ -195,11 +195,11 @@
 }
 
 .notification-confirm > .pane .close-button > .graphic {
-    -fx-background-color: #4682B4;
+    -fx-background-color: #333;
     -fx-scale-shape: false;
     -fx-padding: 4.5 4.5 4.5 4.5; /* Graphic is 9x9 px */
 }
 
 .notification-confirm > .pane .close-button:hover {
-    -fx-background-color: linear-gradient(#4682B4, #6495ED 34%, #87CEEB 36%, #87CEEB 63%, #6495ED 65%, #4682B4);
+    -fx-background-color: linear-gradient(#D3D3D3, #AAA 34%, #808080 36%, #808080 63%, #AAA 65%, #D3D3D3);
 }

@@ -3,6 +3,7 @@ package com.connectpro.connectproserver.utils.notification;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
+import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 
@@ -47,26 +48,47 @@ public class NotificationCustom {
     }
 
     private void showNotificationType(NotificationType type){
+        ImageView icon;
         switch (type) {
             case NotificationType.SUCCESS:
                 notificationBuilder.styleClass("notification-success");
-                notificationBuilder.showConfirm();
+                icon = new ImageView(getClass().getResource("/images/icons/check-circle.png").toString());
+                icon.setFitHeight(35d);
+                icon.setFitWidth(35d);
+                notificationBuilder.graphic(icon);
+                notificationBuilder.show();
                 break;
             case NotificationType.INFO:
                 notificationBuilder.styleClass("notification-info");
-                notificationBuilder.showInformation();
+                icon = new ImageView(getClass().getResource("/images/icons/info.png").toString());
+                icon.setFitHeight(35d);
+                icon.setFitWidth(35d);
+                notificationBuilder.graphic(icon);
+                notificationBuilder.show();
                 break;
             case NotificationType.ERROR:
                 notificationBuilder.styleClass("notification-error");
-                notificationBuilder.showError();
+                icon = new ImageView(getClass().getResource("/images/icons/x-circle.png").toString());
+                icon.setFitHeight(35d);
+                icon.setFitWidth(35d);
+                notificationBuilder.graphic(icon);
+                notificationBuilder.show();
                 break;
             case NotificationType.WARNING:
                 notificationBuilder.styleClass("notification-warning");
-                notificationBuilder.showWarning();
+                icon = new ImageView(getClass().getResource("/images/icons/alert-triangle.png").toString());
+                icon.setFitHeight(35d);
+                icon.setFitWidth(35d);
+                notificationBuilder.graphic(icon);
+                notificationBuilder.show();
                 break;
             case NotificationType.CONFIRM:
                 notificationBuilder.styleClass("notification-confirm");
-                notificationBuilder.showConfirm();
+                icon = new ImageView(getClass().getResource("/images/icons/help-circle.png").toString());
+                icon.setFitHeight(35d);
+                icon.setFitWidth(35d);
+                notificationBuilder.graphic(icon);
+                notificationBuilder.show();
                 break;
             default:
                 notificationBuilder.show();
