@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.connectpro.connectproserver.BaseSceneController">
+   <left>
+      <AnchorPane minWidth="60.0" prefHeight="400.0" prefWidth="60.0" stylesheets="@../../../style/application.css" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="400.0" prefWidth="50.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <StackPane prefHeight="40.0" prefWidth="40.0">
+                     <children>
+                        <AnchorPane prefHeight="35.0" prefWidth="35.0" style="-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 10px;" />
+                        <Button fx:id="menuHomeButton" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#onHomeButton" prefHeight="40.0" prefWidth="40.0" stylesheets="@../../../style/button.css">
+                           <graphic>
+                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/icons/menu/home_icon_white.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <styleClass>
+                              <String fx:value="transparent-button" />
+                              <String fx:value="image-button" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                  </StackPane>
+                  <Button fx:id="menuPhoneListButton" mnemonicParsing="false" onAction="#onPhoneListButton" prefHeight="40.0" prefWidth="40.0" stylesheets="@../../../style/button.css">
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/icons/menu/ad_units_icon_white.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="transparent-button" />
+                        <String fx:value="image-button" />
+                     </styleClass>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+         <styleClass>
+            <String fx:value="side-menu" />
+            <String fx:value="background-header" />
+         </styleClass>
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </BorderPane.margin>
+      </AnchorPane>
+   </left>
+   <top>
+      <AnchorPane minWidth="60.0" prefHeight="60.0" prefWidth="600.0" styleClass="background-header" stylesheets="@../../../style/application.css" BorderPane.alignment="CENTER">
+         <children>
+            <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="60.0" prefWidth="177.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <AnchorPane>
+                     <children>
+                        <Button fx:id="startButton" minWidth="36.0" mnemonicParsing="false" onAction="#onStartServerButton" stylesheets="@../../../style/button.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/play-icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <styleClass>
+                              <String fx:value="transparent-button" />
+                              <String fx:value="image-button" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane>
+                     <children>
+                        <Button fx:id="shutdownButton" minWidth="36.0" mnemonicParsing="false" onAction="#onShutdownServerButton" stylesheets="@../../../style/button.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/stop-icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <styleClass>
+                              <String fx:value="transparent-button" />
+                              <String fx:value="image-button" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane>
+                     <children>
+                        <Button fx:id="testButton" minWidth="36.0" mnemonicParsing="false" onAction="#onTestButton" stylesheets="@../../../style/button.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/stop-icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <styleClass>
+                              <String fx:value="transparent-button" />
+                              <String fx:value="image-button" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <Label layoutX="6.0" layoutY="14.0" styleClass="header" stylesheets="@../../../style/typography.css" text="ConnectPro Server" textFill="WHITE" AnchorPane.leftAnchor="14.0" />
+            <Label fx:id="programVersion" layoutX="211.0" layoutY="14.0" styleClass="header" stylesheets="@../../../style/typography.css" text="..." textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>

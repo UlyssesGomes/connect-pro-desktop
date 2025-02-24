@@ -52,7 +52,7 @@ public class NotificationCustom {
         switch (type) {
             case NotificationType.SUCCESS:
                 notificationBuilder.styleClass("notification-success");
-                icon = new ImageView(getClass().getResource("/images/icons/check-circle.png").toString());
+                icon = new ImageView(getClass().getResource("/images/icons/notification/check-circle.png").toString());
                 icon.setFitHeight(35d);
                 icon.setFitWidth(35d);
                 notificationBuilder.graphic(icon);
@@ -60,7 +60,7 @@ public class NotificationCustom {
                 break;
             case NotificationType.INFO:
                 notificationBuilder.styleClass("notification-info");
-                icon = new ImageView(getClass().getResource("/images/icons/info.png").toString());
+                icon = new ImageView(getClass().getResource("/images/icons/notification/info.png").toString());
                 icon.setFitHeight(35d);
                 icon.setFitWidth(35d);
                 notificationBuilder.graphic(icon);
@@ -68,7 +68,7 @@ public class NotificationCustom {
                 break;
             case NotificationType.ERROR:
                 notificationBuilder.styleClass("notification-error");
-                icon = new ImageView(getClass().getResource("/images/icons/x-circle.png").toString());
+                icon = new ImageView(getClass().getResource("/images/icons/notification/x-circle.png").toString());
                 icon.setFitHeight(35d);
                 icon.setFitWidth(35d);
                 notificationBuilder.graphic(icon);
@@ -76,7 +76,7 @@ public class NotificationCustom {
                 break;
             case NotificationType.WARNING:
                 notificationBuilder.styleClass("notification-warning");
-                icon = new ImageView(getClass().getResource("/images/icons/alert-triangle.png").toString());
+                icon = new ImageView(getClass().getResource("/images/icons/notification/alert-triangle.png").toString());
                 icon.setFitHeight(35d);
                 icon.setFitWidth(35d);
                 notificationBuilder.graphic(icon);
@@ -84,7 +84,7 @@ public class NotificationCustom {
                 break;
             case NotificationType.CONFIRM:
                 notificationBuilder.styleClass("notification-confirm");
-                icon = new ImageView(getClass().getResource("/images/icons/help-circle.png").toString());
+                icon = new ImageView(getClass().getResource("/images/icons/notification/help-circle.png").toString());
                 icon.setFitHeight(35d);
                 icon.setFitWidth(35d);
                 notificationBuilder.graphic(icon);

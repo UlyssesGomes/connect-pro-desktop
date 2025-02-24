@@ -2,3 +2,18 @@
     -fx-background-color: #BBB;
     -fx-background-radius: 5px;
 }
+
+.background-layout {
+    -fx-background-color:  #E8E8E8;
+}
+
+.background-header {
+    -fx-background-color:  #555;
+}
+
+.side-menu {
+    -fx-border-width: 0 1px 0 0;
+    -fx-background-radius: 5px;
+    margin: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0.5, 2, 2);
+}

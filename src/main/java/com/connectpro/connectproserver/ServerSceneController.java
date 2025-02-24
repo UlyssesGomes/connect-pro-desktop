@@ -5,6 +5,8 @@ import com.connectpro.connectproserver.utils.WorkerMessageConstants;
 import com.connectpro.connectproserver.utils.designpatterns.observable.IObservable;
 import com.connectpro.connectproserver.utils.designpatterns.observable.Observer;
 import com.connectpro.connectproserver.utils.designpatterns.observable.Subject;
+import com.connectpro.connectproserver.utils.notification.NotificationCustom;
+import com.connectpro.connectproserver.utils.notification.NotificationType;
 import com.connectpro.connectproserver.utils.observableimplementations.ObservableData;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -14,19 +16,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class ServerSceneController implements Observer<ObservableData<String>> {
-
-    @FXML
-    private Button startButton;
-
-    @FXML
-    private Button shutdownButton;
 
     @FXML
     private TextArea serverLogTextArea;
@@ -41,16 +37,9 @@ public class ServerSceneController implements Observer<ObservableData<String>> {
     private Label deviceIpLabel;
 
     @FXML
-    private Label programVersion;
-
-    @FXML
     private ImageView imageStatus;
 
-    private Server server;
-
     private int deviceCount;
-
-    private Alert a;
 
     private Image onlineSatusImage;
     private Image offlineStatusImage;
@@ -59,11 +48,11 @@ public class ServerSceneController implements Observer<ObservableData<String>> {
 
     private static ServerSceneController serverSceneController;
 
+    private Stage stage;
+
     public void initialize() {
-        shutdownButton.setDisable(true);
-        server = new Server();
-        deviceIpLabel.setText(server.getIp());
-        a = new Alert(Alert.AlertType.NONE);
+
+        //deviceIpLabel.setText(server.getIp());
 
         offlineStatusImage = new Image(getClass().getResource("/images/internet-icon.png").toString());
         onlineSatusImage = new Image(getClass().getResource("/images/internet-on-icon.png").toString());
@@ -73,8 +62,6 @@ public class ServerSceneController implements Observer<ObservableData<String>> {
 
         deviceCount = 0;
         deviceCountLabel.setText(deviceCount + " Device");
-
-        programVersion.setText("v0.3");
     }
 
     public void onClose() {
@@ -83,43 +70,35 @@ public class ServerSceneController implements Observer<ObservableData<String>> {
         }
     }
 
-    @FXML
-    protected void onStartServerButton() {
-        setServerStatus(true);
-        server.restart();
-        serverLogTextArea.appendText("Server started at port " + server.PORT + "...\n");
-    }
+//    @FXML
+//    protected void onStartServerButton() {
+//        setServerStatus(true);
+//        server.restart();
+//        serverLogTextArea.appendText("Server started at port " + server.PORT + "...\n");
+//    }
 
-    private void callAlert() {
 
-        // set alert type
-        a.setAlertType(Alert.AlertType.INFORMATION);
 
-        // show the dialog
-        System.out.println("show alert.");
-        a.showAndWait();
-    }
+//    @FXML
+//    protected void onShutdownServerButton() {
+//        serverLogTextArea.appendText("Shutting down server...\n");
+//        setServerStatus(false);
+//        server.cancel();
+//    }
 
-    @FXML
-    protected void onShutdownServerButton() {
-        serverLogTextArea.appendText("Shutting down server...\n");
-        setServerStatus(false);
-        server.cancel();
-    }
-
-    private void setServerStatus(boolean status) {
-        if (status) {
-            startButton.setDisable(true);
-            shutdownButton.setDisable(false);
-            labelStatus.setText("Online");
-            imageStatus.setImage(onlineSatusImage);
-        } else {
-            startButton.setDisable(false);
-            shutdownButton.setDisable(true);
-            labelStatus.setText("Offline");
-            imageStatus.setImage(offlineStatusImage);
-        }
-    }
+//    private void setServerStatus(boolean status) {
+//        if (status) {
+//            startButton.setDisable(true);
+//            shutdownButton.setDisable(false);
+//            labelStatus.setText("Online");
+//            imageStatus.setImage(onlineSatusImage);
+//        } else {
+//            startButton.setDisable(false);
+//            shutdownButton.setDisable(true);
+//            labelStatus.setText("Offline");
+//            imageStatus.setImage(offlineStatusImage);
+//        }
+//    }
 
     @Override
     public synchronized void update(Subject<ObservableData<String>> subjectValue) {
