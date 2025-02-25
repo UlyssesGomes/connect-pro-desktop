@@ -14,6 +14,8 @@ public class MainApplication extends Application {
     private Stage primaryStage;
     private BorderPane basePane;
 
+    private BaseSceneController baseSceneController;
+
     @Override
     public void start(Stage stage) throws IOException {
         primaryStage = stage;
@@ -25,6 +27,9 @@ public class MainApplication extends Application {
 
         initBaseLayout();
         initServerLayout();
+        initPhoneListLayout();
+
+        baseSceneController.setLayout(MenuButtonEnum.SERVER_HOME);
     }
 
 
@@ -37,6 +42,7 @@ public class MainApplication extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApplication.class.getResource("base-view.fxml"));
             basePane = (BorderPane) loader.load();
+            baseSceneController = (BaseSceneController) loader.getController();
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(basePane);
@@ -50,12 +56,23 @@ public class MainApplication extends Application {
 
     public void initServerLayout() {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("server-view.fxml"));
-        ServerSceneController serverSceneController = fxmlLoader.getController();
         try {
             AnchorPane serverPane = (AnchorPane) fxmlLoader.load();
-            basePane.setCenter(serverPane);
+            ServerSceneController serverSceneController = fxmlLoader.getController();
+            baseSceneController.addPaneController(MenuButtonEnum.SERVER_HOME, serverSceneController);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void initPhoneListLayout() {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("phone-list-view.fxml"));
+        try {
+            AnchorPane serverPane = (AnchorPane) fxmlLoader.load();
+            PhoneListSceneController phoneListSceneController = fxmlLoader.getController();
+            baseSceneController.addPaneController(MenuButtonEnum.PHONE_LIST, phoneListSceneController);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 

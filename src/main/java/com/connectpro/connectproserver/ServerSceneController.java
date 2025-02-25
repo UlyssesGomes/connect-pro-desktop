@@ -1,28 +1,29 @@
 package com.connectpro.connectproserver;
 
-import com.connectpro.connectproserver.server.Server;
+import com.connectpro.connectproserver.utils.NodePaneController;
 import com.connectpro.connectproserver.utils.WorkerMessageConstants;
 import com.connectpro.connectproserver.utils.designpatterns.observable.IObservable;
 import com.connectpro.connectproserver.utils.designpatterns.observable.Observer;
 import com.connectpro.connectproserver.utils.designpatterns.observable.Subject;
-import com.connectpro.connectproserver.utils.notification.NotificationCustom;
-import com.connectpro.connectproserver.utils.notification.NotificationType;
 import com.connectpro.connectproserver.utils.observableimplementations.ObservableData;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class ServerSceneController implements Observer<ObservableData<String>> {
+public class ServerSceneController implements Observer<ObservableData<String>>, NodePaneController {
+
+    @FXML
+    private AnchorPane node;
 
     @FXML
     private TextArea serverLogTextArea;
@@ -135,5 +136,9 @@ public class ServerSceneController implements Observer<ObservableData<String>> {
                 deviceCountLabel.setText(deviceMessage);
             }
         });
+    }
+
+    public Node getNode() {
+        return node;
     }
 }

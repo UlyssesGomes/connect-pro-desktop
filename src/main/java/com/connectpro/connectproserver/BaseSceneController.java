@@ -1,15 +1,20 @@
 package com.connectpro.connectproserver;
 
 import com.connectpro.connectproserver.server.Server;
+import com.connectpro.connectproserver.utils.NodePaneController;
 import com.connectpro.connectproserver.utils.notification.NotificationCustom;
 import com.connectpro.connectproserver.utils.notification.NotificationType;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
+import java.util.HashMap;
+import java.util.Map;
+
 enum MenuButtonEnum {
-    HOME,
+    SERVER_HOME,
     PHONE_LIST
 }
 
@@ -23,6 +28,12 @@ public class BaseSceneController {
 
     @FXML
     private Button shutdownButton;
+
+    @FXML
+    private AnchorPane menuHomeSelection;
+
+    @FXML
+    private AnchorPane menuPhoneSelection;
 
     @FXML
     private Button testButton;
@@ -40,6 +51,8 @@ public class BaseSceneController {
 
     private NotificationCustom notification;
 
+    private Map<MenuButtonEnum, NodePaneController> paneControllerMap;
+
     public void initialize() {
         shutdownButton.setDisable(true);
         server = new Server();
@@ -47,6 +60,8 @@ public class BaseSceneController {
         programVersion.setText("v0.4");
 
         notification = new NotificationCustom();
+
+        paneControllerMap = new HashMap<>();
     }
 
     public BorderPane getPane() {
@@ -92,7 +107,7 @@ public class BaseSceneController {
 
     @FXML
     protected void onHomeButton() {
-        setSelectMenuButton(MenuButtonEnum.HOME);
+        setSelectMenuButton(MenuButtonEnum.SERVER_HOME);
     }
 
     @FXML
@@ -101,11 +116,24 @@ public class BaseSceneController {
     }
 
     private void setSelectMenuButton(MenuButtonEnum button) {
-        if(button == MenuButtonEnum.HOME) {
-            System.out.println("Home selected.");
+        if(button == MenuButtonEnum.SERVER_HOME) {
+            menuHomeSelection.setVisible(true);
+            menuPhoneSelection.setVisible(false);
+            setLayout(MenuButtonEnum.SERVER_HOME);
         }
         else if(button == MenuButtonEnum.PHONE_LIST) {
-            System.out.println("Phone selected.");
+            menuPhoneSelection.setVisible(true);
+            menuHomeSelection.setVisible(false);
+            setLayout(MenuButtonEnum.PHONE_LIST);
         }
+    }
+
+    public void setLayout(MenuButtonEnum selectedButton) {
+        NodePaneController controller = paneControllerMap.get(selectedButton);
+        pane.setCenter(controller.getNode());
+    }
+
+    public void addPaneController(MenuButtonEnum selectedButton, NodePaneController controller) {
+        paneControllerMap.put(selectedButton, controller);
     }
 }
