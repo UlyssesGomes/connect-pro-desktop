@@ -84,7 +84,7 @@
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../images/play-icon.png" />
+                                    <Image url="@../../../images/icons/play-icon.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -101,7 +101,7 @@
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../images/stop-icon.png" />
+                                    <Image url="@../../../images/icons/stop-icon.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -118,7 +118,7 @@
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../images/stop-icon.png" />
+                                    <Image url="@../../../images/icons/stop-icon.png" />
                                  </image>
                               </ImageView>
                            </graphic>

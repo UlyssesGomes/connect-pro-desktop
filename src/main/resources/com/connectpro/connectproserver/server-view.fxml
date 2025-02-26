@@ -18,7 +18,7 @@
                <children>
                   <ImageView fx:id="imageStatus" fitHeight="71.0" fitWidth="81.0" layoutX="6.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="0.0">
                      <image>
-                        <Image url="@../../../images/internet-icon.png" />
+                        <Image url="@../../../images/icons/internet-icon.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="85.0" layoutY="11.0" prefHeight="25.0" prefWidth="64.0" styleClass="card-text" stylesheets="@../../../style/typography.css" text="Status" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="10.0" />
@@ -32,7 +32,7 @@
                <children>
                   <ImageView fitHeight="71.0" fitWidth="81.0" layoutX="6.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="0.0">
                      <image>
-                        <Image url="@../../../images/ip-icon.png" />
+                        <Image url="@../../../images/icons/ip-icon.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="85.0" layoutY="11.0" prefHeight="25.0" prefWidth="101.0" styleClass="card-text" stylesheets="@../../../style/typography.css" text="Server IP" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="10.0" />
@@ -46,7 +46,7 @@
                <children>
                   <ImageView fitHeight="71.0" fitWidth="81.0" layoutX="6.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="0.0">
                      <image>
-                        <Image url="@../../../images/smartphone-icon.png" />
+                        <Image url="@../../../images/icons/smartphone-icon.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="85.0" layoutY="11.0" prefHeight="25.0" prefWidth="101.0" styleClass="card-text" stylesheets="@../../../style/typography.css" text="Connected" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="10.0" />

@@ -55,8 +55,8 @@ public class ServerSceneController implements Observer<ObservableData<String>>, 
 
         //deviceIpLabel.setText(server.getIp());
 
-        offlineStatusImage = new Image(getClass().getResource("/images/internet-icon.png").toString());
-        onlineSatusImage = new Image(getClass().getResource("/images/internet-on-icon.png").toString());
+        offlineStatusImage = new Image(getClass().getResource("/images/icons/internet-icon.png").toString());
+        onlineSatusImage = new Image(getClass().getResource("/images/icons/internet-on-icon.png").toString());
 
         serverSceneController = this;
         observableList = new ArrayList<>();
