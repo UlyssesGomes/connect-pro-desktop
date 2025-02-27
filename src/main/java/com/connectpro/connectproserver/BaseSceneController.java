@@ -15,7 +15,8 @@ import java.util.Map;
 
 enum MenuButtonEnum {
     SERVER_HOME,
-    PHONE_LIST
+    PHONE_LIST,
+    SETTING
 }
 
 public class BaseSceneController {
@@ -36,13 +37,10 @@ public class BaseSceneController {
     private AnchorPane menuPhoneSelection;
 
     @FXML
+    private AnchorPane menuSettingSelection;
+
+    @FXML
     private Button testButton;
-
-    @FXML
-    private Button menuHomeButton;
-
-    @FXML
-    private Button menuPhoneListButton;
 
     @FXML
     private Label programVersion;
@@ -115,16 +113,30 @@ public class BaseSceneController {
         setSelectMenuButton(MenuButtonEnum.PHONE_LIST);
     }
 
+    @FXML
+    protected void onSettingButton() {
+        System.out.println("Not implemented yet.");
+        notification.showNotificationType("Empty function", "This function is not implemented yet.", NotificationType.WARNING);
+    }
+
     private void setSelectMenuButton(MenuButtonEnum button) {
         if(button == MenuButtonEnum.SERVER_HOME) {
             menuHomeSelection.setVisible(true);
             menuPhoneSelection.setVisible(false);
+            menuSettingSelection.setVisible(false);
             setLayout(MenuButtonEnum.SERVER_HOME);
         }
         else if(button == MenuButtonEnum.PHONE_LIST) {
             menuPhoneSelection.setVisible(true);
             menuHomeSelection.setVisible(false);
+            menuSettingSelection.setVisible(false);
             setLayout(MenuButtonEnum.PHONE_LIST);
+        }
+        else if(button == MenuButtonEnum.SETTING) {
+            menuPhoneSelection.setVisible(false);
+            menuHomeSelection.setVisible(false);
+            menuSettingSelection.setVisible(true);
+            setLayout(MenuButtonEnum.SETTING);
         }
     }
 

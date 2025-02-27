@@ -21,7 +21,7 @@
                            <StackPane.margin>
                               <Insets left="5.0" right="5.0" />
                            </StackPane.margin></AnchorPane>
-                        <Button fx:id="menuHomeButton" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#onHomeButton" prefHeight="40.0" prefWidth="40.0" stylesheets="@../../../style/button.css">
+                        <Button maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#onHomeButton" prefHeight="40.0" prefWidth="40.0" stylesheets="@../../../style/button.css">
                            <graphic>
                               <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -43,11 +43,33 @@
                               <Insets left="5.0" right="5.0" />
                            </StackPane.margin>
                         </AnchorPane>
-                        <Button fx:id="menuPhoneListButton" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#onPhoneListButton" prefHeight="40.0" prefWidth="40.0" stylesheets="@../../../style/button.css">
+                        <Button maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#onPhoneListButton" prefHeight="40.0" prefWidth="40.0" stylesheets="@../../../style/button.css">
                            <graphic>
                               <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../images/icons/menu/ad_units_icon_white.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <styleClass>
+                              <String fx:value="transparent-button" />
+                              <String fx:value="image-button" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="40.0" prefWidth="40.0">
+                     <children>
+                        <AnchorPane fx:id="menuSettingSelection" prefHeight="35.0" prefWidth="35.0" style="-fx-border-color: #C2C2C2; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-background-color: #999; -fx-background-radius: 10px;" visible="false">
+                           <StackPane.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </StackPane.margin>
+                        </AnchorPane>
+                        <Button maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#onSettingButton" prefHeight="40.0" prefWidth="40.0" stylesheets="@../../../style/button.css">
+                           <graphic>
+                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/icons/menu/settings_icon_white.png" />
                                  </image>
                               </ImageView>
                            </graphic>
